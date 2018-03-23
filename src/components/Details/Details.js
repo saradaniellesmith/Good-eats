@@ -20,6 +20,7 @@ class Details extends Component {
     }
 
     render() {
+        console.log(this.state.foodItem);
      const foodItem = this.state.menuItem.map((items, index) => {
          return(
              <div key={index} >

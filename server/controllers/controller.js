@@ -2,13 +2,6 @@ require("dotenv").config();
 
 module.exports = {
     
-    // loginUser: (req, res, next) => {
-    //     req.session.user
-    // }
-    
-    
-    
-    
     getMenuItems: (req, res, next) => {
         req.app.get("db")
         .getMenuItems()
@@ -19,21 +12,23 @@ module.exports = {
         })
     },
 
-   getFoodById: (req, res, next) =>{
+    getFoodById: (req, res, next) =>{
        req.app.get("db")
        .getFoodById([req.params.id])
-       .then(response => res.status(200).json(response))
+       .then(response => {
+           console.log(response, "details")
+           res.status(200).json(response)})
        .catch( () => res.status(500).json());
    },
 
-   addMenuItem:  (req, res, next) => {
+    addMenuItem:  (req, res, next) => {
        req.app.get("db")
        .addMenuItem([req.body.id, req.body.name, req.body.price, req.body.details])
        .then(response => res.status(200).json(response))
        .catch( () => res.status(500).json())
    },
 
-   deleteItem: (req, res, next) => {
+    deleteItem: (req, res, next) => {
        req.app.get("db")
        .deleteMenuItem([req.params.id])
        .then(response => res.status(200).json())

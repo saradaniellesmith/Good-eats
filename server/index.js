@@ -31,7 +31,7 @@ massive(CONNECTION_STRING)
 
 
 // Endpoints //
-app.post('/api/auth/login', controller.loginUser);
+// app.post('/api/auth/login', controller.loginUser);
 // app.post('/api/auth/register', controller.registerUser);
 // app.post('/api/auth/logout', controller.destroyUser);
 app.get('/menu', controller.getMenuItems);

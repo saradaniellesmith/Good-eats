@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
+import NavBar from './../NavBar/NavBar';
 
 class Menu extends Component {
     constructor(props) {
@@ -25,8 +26,10 @@ class Menu extends Component {
             return (
                 <div className="menu" key={index}> 
                     <div className="menu-items" >
+                    <Link to={`/menu/${items.id}`} key={index} >
                         {items.name}
-                        <button> <Link to={`/menu/${items.id}`} key={index} > Details </Link> </button>
+                    </Link>
+                        <button>  Details  </button>
                     </div>
                 </div>
             ) 
@@ -34,6 +37,7 @@ class Menu extends Component {
 
         return(
             <div className="menu-container">
+                <NavBar />
                  <div className="title" > Menu </div>
                  <div> {menu} </div>
             </div>
